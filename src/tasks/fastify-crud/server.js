@@ -174,7 +174,7 @@ fastify.delete("/api/products/:id", { schema: idParamSchema }, async (request, r
 
 // users - получить список с фильтом по ролям
 fastify.get("/api/users", { schema: userQuerySchema }, async (request) => {
-    const { role } = db.query;
+    const role = request.query.role;
     let res = db.users;
 
     if (role) {
